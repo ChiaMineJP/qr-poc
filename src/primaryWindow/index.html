@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self';">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <style>
+    body {
+      font-size: 12px;
+    }
+    #root {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
+    #captured-image {
+      border: 1px dashed #999;
+      width: 600px;
+      height: 400px;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+      height: 24px;
+      width: 100%;
+    }
+    .header button + button {
+      margin-left: 16px;
+    }
+    #scan-result {
+      height: 24px;
+      display: flex;
+      align-items: center;
+    }
+    .content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: calc(100% - 24px - 24px);
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+<div id="root">
+  <div class="header">
+    <div>
+      <button id="request-desktop-capture-btn">Scan QR from desktop</button>
+    </div>
+    <div style="display: none;">
+      <button id="request-device-capture-btn">Scan QR from camera</button>
+    </div>
+  </div>
+  <div id="scan-result">
+    <span style="color: #999;">QR Scan result will be shown here</span>
+  </div>
+  <div class="content">
+    <div id="captured-image">
+    </div>
+  </div>
+</div>
+</body>
+</html>
